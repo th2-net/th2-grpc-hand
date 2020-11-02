@@ -104,7 +104,7 @@ setup(
     long_description=long_description,
     author='TH2-devs',
     author_email='th2-devs@exactprosystems.com',
-    url='https://gitlab.exactpro.com/vivarium/th2/th2-core-open-source/th2-grpc-generator-template',
+    url='https://gitlab.exactpro.com/vivarium/th2/th2-core-open-source/th2-grpc-hand',
     license='Apache License 2.0',
     python_requires='>=3.7',
     install_requires=[

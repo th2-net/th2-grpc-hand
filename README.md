@@ -1,19 +1,6 @@
-# GRPC Generator Template
+# GRPC Hand
 
 ## Current supported languages: Java, Python
-Fork this project and follow instructions.
-
-This tool generates code from `.proto` files and upload constructed packages (`.proto` files with generated code) to desired repositories.
-
-### How to use:
-1. Edit `rootProject.name` variable in `settings.gradle` file. This will be the name of Java package.
-2. Edit `package_info.json` file in order to specify package name and version for Python package (create file if it's absent).
-3. Edit parameters of `setup.py` in `setup` function invocation such as: `author`, `author_email`, `url`. Do not edit the others.
-4. Create a directory with the name `package_name` (as in Python) under `src/main/proto` directory (remove example files `Foo.proto` and `Bar.proto` if present).
-5. Place your own `.proto` files in created directory.
-6. Edit imports in your `.proto` files so that they look like <br>
-`import "{package_name}/{proto_file_name}.proto"`
-7. Edit paths in `python-service-generator` stage in Dockerfile. They should correspond to the project structure.
 
 #### Docker
 You can run everything via Docker:
