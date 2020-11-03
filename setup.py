@@ -108,9 +108,7 @@ setup(
     license='Apache License 2.0',
     python_requires='>=3.7',
     install_requires=[
-        'grpcio-tools==1.33.1',
-        'google-api-core==1.23.0',
-        'twine==3.2.0'
+        get_dependency(dependency_name='th2-grpc-common', dependency_version='2.2.0')
     ],
     packages=['', package_name],
     package_data={'': ['package_info.json'], package_name: ['*.proto']},

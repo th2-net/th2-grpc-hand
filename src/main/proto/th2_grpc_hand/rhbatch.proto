@@ -19,12 +19,10 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.exactpro.th2.act.grpc.hand";
 
-import "grpc_hand/rhactionsmessages.proto";
-import "grpc_hand/rhactionsmessages_win.proto";
-import "grpc_common/common.proto";
+import "th2_grpc_hand/rhactionsmessages.proto";
+import "th2_grpc_hand/rhactionsmessages_win.proto";
+import "th2_grpc_common/common.proto";
 import "google/protobuf/empty.proto";
-
-package th2;
 
 service RhBatch {
   rpc register(RhTargetServer) returns (RhSessionID) {}

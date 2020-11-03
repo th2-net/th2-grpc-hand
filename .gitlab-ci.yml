@@ -1,8 +1,8 @@
 variables:
-  APP_NAME: "grpc-hand"
+  APP_NAME: "th2-grpc-hand"
   MAJOR_VERSION: "2"
   MINOR_VERSION: "0"
-  MAINTENANCE_VERSION: '1'
+  MAINTENANCE_VERSION: '2'
   DOCKER_PUBLISH_ENABLED: 'false'
 
 include:
