@@ -30,7 +30,10 @@ RUN gradle --no-daemon clean build publish artifactoryPublish \
 	-Partifactory_user=${artifactory_user} \
 	-Partifactory_password=${artifactory_password} \
 	-Partifactory_deploy_repo_key=${artifactory_deploy_repo_key} \
-	-Partifactory_url=${artifactory_url}
+	-Partifactory_url=${artifactory_url} \
+    -Pnexus_url=${nexus_url} \
+    -Pnexus_user=${nexus_user} \
+    -Pnexus_password=${nexus_password}
 
 FROM nexus.exactpro.com:9000/th2-python-service-generator:1.1.1 as python_service_generator
 WORKDIR /home/project
