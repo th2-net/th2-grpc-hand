@@ -1,5 +1,6 @@
 variables:
   APP_NAME: "th2-grpc-hand"
+
   DOCKER_PUBLISH_ENABLED: 'false'
 
 include:
