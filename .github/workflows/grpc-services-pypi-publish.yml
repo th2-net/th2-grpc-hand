@@ -23,6 +23,8 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
+    - name: Create output folder
+      run: mkdir -p src/gen/main/python/${{steps.version.outputs.prop}}
     - name: Run codegen
       uses: docker://ghcr.io/th2-net/th2-python-service-generator:1.1.1
       with:
@@ -32,7 +34,7 @@ jobs:
     - name: Build package
       run: |
         pip install -r requirements.txt
-        python setup.py generate
+        python setup.py generate -s
         python setup.py sdist
     - name: Publish distribution to Test PyPI
       uses: pypa/gh-action-pypi-publish@master
