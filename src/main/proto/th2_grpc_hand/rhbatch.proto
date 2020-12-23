@@ -31,7 +31,8 @@ service RhBatch {
 }
 
 message RhSessionID {
-  string id = 1;
+    string id = 1;
+    string sessionAlias = 2;
 }
 
 message RhTargetServer {
