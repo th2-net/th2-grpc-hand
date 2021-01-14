@@ -71,6 +71,7 @@ message WinGetActiveWindow {
   string id = 2;
   string execute = 3;
   string windowName = 4;
+  string accessibilityId = 5;
 }
 
 message WinGetElementAttribute {
@@ -109,6 +110,7 @@ message WinGetWindow {
   string id = 2;
   string execute = 3;
   string windowName = 4;
+  string accessibilityId = 5;
 }
 
 message WinSearchElement {
