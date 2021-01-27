@@ -1,5 +1,5 @@
 /*
- * Copyright 2020-2020 Exactpro (Exactpro Systems Limited)
+ * Copyright 2020-2021 Exactpro (Exactpro Systems Limited)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -151,4 +151,12 @@ message WinTableClick {
   string searchParams = 4;
   string targetColumn = 5;
   string columnIndex = 6;
+}
+
+message WinWaitForElement {
+  repeated WinLocator locators = 1;
+  string id = 2;
+  string execute = 3;
+  string timeout = 4;
+  string fromRoot = 5;
 }
