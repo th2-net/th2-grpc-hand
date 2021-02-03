@@ -14,6 +14,7 @@
 
 import json
 import os
+import site
 from distutils.cmd import Command
 from distutils.dir_util import copy_tree
 from distutils.sysconfig import get_python_lib
@@ -52,7 +53,8 @@ class ProtoGenerator(Command):
         protos = [('grpc_tools', '_proto')]
         protos_include = [f'--proto_path={proto_path}'] + \
                          [f'--proto_path={resource_filename(x[0], x[1])}' for x in protos] + \
-                         [f'--proto_path={get_python_lib()}']
+                         [f'--proto_path={get_python_lib()}'] + \
+                         [f'--proto_path={site.getusersitepackages()}']
 
         from grpc_tools import protoc
         for proto_file in proto_files:

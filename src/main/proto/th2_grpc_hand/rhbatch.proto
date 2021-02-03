@@ -122,7 +122,8 @@ message RhAction {
       WinWaitForAttribute winWaitForAttribute = 111;
       WinScrollUsingText winScrollUsingText = 112;
       WinGetDataFromClipboard winGetDataFromClipboard = 113;
-      WinTableClick winTableClick = 114;
+      WinTableClick winTableClick = 114 [deprecated=true];
       WinWaitForElement winWaitForElement = 115;
+      WinTableSearch winTableSearch = 116;
   }
 }
