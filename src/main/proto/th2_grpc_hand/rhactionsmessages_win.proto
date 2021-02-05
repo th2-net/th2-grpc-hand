@@ -72,6 +72,12 @@ message WinGetActiveWindow {
   string execute = 3;
   string windowName = 4;
   string accessibilityId = 5;
+  int32 maxTimeout = 6;
+}
+
+message MaximizeMainWindow {
+  string id = 2;
+  string execute = 3;
 }
 
 message WinGetElementAttribute {

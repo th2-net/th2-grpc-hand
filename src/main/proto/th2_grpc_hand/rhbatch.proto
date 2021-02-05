@@ -124,5 +124,6 @@ message RhAction {
       WinGetDataFromClipboard winGetDataFromClipboard = 113;
       WinTableClick winTableClick = 114;
       WinWaitForElement winWaitForElement = 115;
+      MaximizeMainWindow winMaximizeMainWindow = 116;
   }
 }
