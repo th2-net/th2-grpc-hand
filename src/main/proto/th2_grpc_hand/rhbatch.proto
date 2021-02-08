@@ -125,5 +125,6 @@ message RhAction {
       WinTableClick winTableClick = 114 [deprecated=true];
       WinWaitForElement winWaitForElement = 115;
       WinTableSearch winTableSearch = 116;
+      MaximizeMainWindow winMaximizeMainWindow = 117;
   }
 }
