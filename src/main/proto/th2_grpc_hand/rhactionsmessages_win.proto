@@ -33,6 +33,7 @@ message WinOpen {
     string execute = 3;
     string workDir = 4;
     string appFile = 5;
+    string appArgs = 6;
 }
 
 message WinClick {
@@ -145,12 +146,26 @@ message WinGetDataFromClipboard {
 }
 
 message WinTableClick {
+  option deprecated = true;
   repeated WinLocator locators = 1;
   string id = 2;
   string execute = 3;
   string searchParams = 4;
   string targetColumn = 5;
   string columnIndex = 6;
+}
+
+message WinTableSearch {
+  repeated WinLocator locators = 1;
+  string id = 2;
+  string execute = 3;
+  string searchParams = 4;
+  string targetColumn = 5;
+  string columnIndex = 6;
+  string firstRowIndex = 7;
+  string rowNameFormat = 8;
+  string rowElementNameFormat = 9;
+  string rowElementValueFormat = 10;
 }
 
 message WinWaitForElement {
