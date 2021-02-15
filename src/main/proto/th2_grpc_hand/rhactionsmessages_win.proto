@@ -172,6 +172,7 @@ message WinTableSearch {
   string rowNameFormat = 8;
   string rowElementNameFormat = 9;
   string rowElementValueFormat = 10;
+  string saveResult = 11;
 }
 
 message WinWaitForElement {
