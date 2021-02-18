@@ -105,6 +105,7 @@ message RhAction {
       AcceptAlert acceptAlert = 35;
       DismissAlert dismissAlert = 36;
       CheckImageAvailability checkImageAvailability = 37;
+      GetScreenshot getScreenshot = 38;
       
       
       //windows actions

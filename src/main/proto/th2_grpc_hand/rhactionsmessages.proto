@@ -297,3 +297,7 @@ message CheckImageAvailability {
   string matcher = 3;
   string webId = 4;
 }
+
+message GetScreenshot {
+  string name = 1;
+}
