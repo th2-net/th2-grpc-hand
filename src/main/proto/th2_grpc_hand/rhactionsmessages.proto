@@ -301,3 +301,11 @@ message CheckImageAvailability {
 message GetScreenshot {
   string name = 1;
 }
+
+message GetScreenshotElement {
+  int32 wait = 1;
+  Locator locator = 2;
+  string matcher = 3;
+  string webId = 4;
+  string name = 5;
+}

@@ -106,6 +106,7 @@ message RhAction {
       DismissAlert dismissAlert = 36;
       CheckImageAvailability checkImageAvailability = 37;
       GetScreenshot getScreenshot = 38;
+      GetScreenshotElement getScreenshotElement = 39;
       
       
       //windows actions
@@ -127,5 +128,6 @@ message RhAction {
       WinWaitForElement winWaitForElement = 115;
       WinTableSearch winTableSearch = 116;
       MaximizeMainWindow winMaximizeMainWindow = 117;
+      WinGetScreenshot winGetScreenshot = 118;
   }
 }
