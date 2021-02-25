@@ -106,7 +106,7 @@ message RhAction {
       DismissAlert dismissAlert = 36;
       CheckImageAvailability checkImageAvailability = 37;
       GetScreenshot getScreenshot = 38;
-      GetScreenshotElement getScreenshotElement = 39;
+      TakeElementScreenshotSnapshot getScreenshotElement = 39;
       
       
       //windows actions

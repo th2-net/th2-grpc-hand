@@ -266,7 +266,7 @@ message GetDuration {
   string name = 2;
 }
 
-message GetElementScreenshot {
+message TakeElementScreenshotSnapshot {
   int32 wait = 1;
   Locator locator = 2;
   string matcher = 3;
@@ -302,7 +302,7 @@ message GetScreenshot {
   string name = 1;
 }
 
-message GetScreenshotElement {
+message GetElementScreenshot {
   int32 wait = 1;
   Locator locator = 2;
   string matcher = 3;
