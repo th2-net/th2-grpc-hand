@@ -309,3 +309,7 @@ message GetElementScreenshot {
   string webId = 4;
   string name = 5;
 }
+
+message ExecuteJS {
+  string commands = 1;
+}
