@@ -108,7 +108,7 @@ message RhAction {
       GetScreenshot getScreenshot = 38;
       StoreElementState storeElementState = 39;
       ExecuteJS executeJs = 40;
-      ExecuteJS executeJsElement = 41;
+      ExecuteJSElement executeJsElement = 41;
       
       //windows actions
       WinOpen winOpen = 100;

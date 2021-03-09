@@ -313,3 +313,11 @@ message GetElementScreenshot {
 message ExecuteJS {
   string commands = 1;
 }
+
+message ExecuteJSElement {
+  int32 wait = 1;
+  Locator locator = 2;
+  string matcher = 3;
+  string webId = 4;
+  string commands = 5;
+}
