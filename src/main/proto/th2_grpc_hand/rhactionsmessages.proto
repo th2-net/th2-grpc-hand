@@ -266,7 +266,7 @@ message GetDuration {
   string name = 2;
 }
 
-message TakeElementScreenshotSnapshot {
+message StoreElementState {
   int32 wait = 1;
   Locator locator = 2;
   string matcher = 3;
@@ -308,4 +308,16 @@ message GetElementScreenshot {
   string matcher = 3;
   string webId = 4;
   string name = 5;
+}
+
+message ExecuteJS {
+  string commands = 1;
+}
+
+message ExecuteJSElement {
+  int32 wait = 1;
+  Locator locator = 2;
+  string matcher = 3;
+  string webId = 4;
+  string commands = 5;
 }
