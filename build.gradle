@@ -9,6 +9,7 @@ buildscript {
         classpath "com.exactpro.th2:grpc-service-generator:2.0.5"
     }
 }
+apply plugin: "com.exactpro.th2.service-generator"
 plugins {
     id 'java'
     id 'java-library'
