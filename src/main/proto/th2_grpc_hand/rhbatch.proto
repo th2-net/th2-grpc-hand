@@ -50,13 +50,15 @@ message RhBatchResponse {
         SUCCESS = 0;
         COMPILE_ERROR = 1;
         EXECUTION_ERROR = 2;
+        RH_ERROR = 3;
+        TOOL_BUSY = 4;
+        INCORRECT_REQUEST = 5;
     }
 
     ScriptExecutionStatus scriptStatus = 1;
     string errorMessage = 2;
     repeated ResultDetails result = 3;
     string sessionId = 4;
-    repeated MessageID attached_message_ids = 5;
 }
 
 // Represents list of RhActions which need to be executed to perform some operation user wants to
@@ -64,6 +66,8 @@ message RhActionsList {
   RhSessionID sessionId = 1;
   repeated RhAction rhAction = 2;
   EventID parentEventId = 3;
+  string eventName = 4;
+  bool storeActionMessages = 5;
 }
 
 message RhAction {
