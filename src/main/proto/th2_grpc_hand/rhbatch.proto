@@ -50,9 +50,7 @@ message RhBatchResponse {
         SUCCESS = 0;
         COMPILE_ERROR = 1;
         EXECUTION_ERROR = 2;
-        RH_ERROR = 3;
-        TOOL_BUSY = 4;
-        INCORRECT_REQUEST = 5;
+        HAND_INTERNAL_ERROR = 3;
     }
 
     ScriptExecutionStatus scriptStatus = 1;
