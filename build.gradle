@@ -1,14 +1,3 @@
-// buildscript {
-//     repositories {
-//         maven {
-//             name 'Bintray'
-//             url 'https://dl.bintray.com/exactpro/th2'
-//         }
-//     }
-//     dependencies {
-//         classpath "com.exactpro.th2:grpc-service-generator:2.0.5"
-//     }
-// }
 plugins {
     id 'java'
     id 'java-library'
@@ -17,7 +6,6 @@ plugins {
     id 'signing'
     id "com.google.protobuf" version "0.8.15"
 }
-// apply plugin: "com.exactpro.th2.service-generator"
 
 group = 'com.exactpro.th2'
 version = release_version
@@ -35,10 +23,6 @@ ext {
 
 repositories {
     mavenCentral()
-    // maven {
-    //     name 'Bintray'
-    //     url 'https://dl.bintray.com/exactpro/th2'
-    // }
     maven {
             name 'Sonatype_snapshots'
             url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
@@ -65,8 +49,6 @@ dependencies {
     implementation "io.grpc:grpc-netty"
 
     implementation "javax.annotation:javax.annotation-api:1.3.2"
-
-    // implementation "com.exactpro.th2:grpc-service-generator:2.0.5"
 }
 
 sourceSets {
@@ -100,13 +82,6 @@ protobuf {
 
 // generateServices.dependsOn.add('generateProto')
 compileJava.dependsOn.add('generateProto')
-
-// serviceGeneration {
-//     settings {
-//         protoDir = "src/main/proto"
-//         outDir = "src/gen/main/services"
-//     }
-// }
 
 java {
     withJavadocJar()
