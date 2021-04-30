@@ -1,14 +1,3 @@
-buildscript {
-    repositories {
-        maven {
-            name 'Bintray'
-            url 'https://dl.bintray.com/exactpro/th2'
-        }
-    }
-    dependencies {
-        classpath "com.exactpro.th2:grpc-service-generator:2.0.5"
-    }
-}
 plugins {
     id 'java'
     id 'java-library'
@@ -17,7 +6,6 @@ plugins {
     id 'signing'
     id "com.google.protobuf" version "0.8.15"
 }
-apply plugin: "com.exactpro.th2.service-generator"
 
 group = 'com.exactpro.th2'
 version = release_version
@@ -28,6 +16,7 @@ targetCompatibility = 11
 ext {
     grpcVersion         = '1.32.1'
     protobufVersion     = '3.13.0'
+    serviceGeneratorVersion = '3.1.8'
 
     genDir              = file("${project.rootDir}/src/gen")
     sharedDir           = file("${project.rootDir}/shared")
@@ -35,10 +24,6 @@ ext {
 
 repositories {
     mavenCentral()
-    maven {
-        name 'Bintray'
-        url 'https://dl.bintray.com/exactpro/th2'
-    }
     maven {
             name 'Sonatype_snapshots'
             url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
@@ -55,8 +40,8 @@ repositories {
 }
 
 dependencies {
-    api platform('com.exactpro.th2:bom:2.10.1')
-    implementation "com.exactpro.th2:grpc-common:3.0.0"
+    api platform('com.exactpro.th2:bom:3.0.0')
+    api "com.exactpro.th2:grpc-common:3.1.2"
 
     api "com.google.protobuf:protobuf-java-util"
     api "io.grpc:grpc-stub"
@@ -65,8 +50,7 @@ dependencies {
     implementation "io.grpc:grpc-netty"
 
     implementation "javax.annotation:javax.annotation-api:1.3.2"
-
-    implementation "com.exactpro.th2:grpc-service-generator:2.0.5"
+    api "com.exactpro.th2:grpc-service-generator:${serviceGeneratorVersion}"
 }
 
 sourceSets {
@@ -88,6 +72,9 @@ protobuf {
         grpc {
             artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
         }
+        services {
+            artifact = "com.exactpro.th2:grpc-service-generator:${serviceGeneratorVersion}:all@jar"
+        }
     }
     generateProtoTasks.generatedFilesBaseDir = genDir
     generateProtoTasks {
@@ -98,15 +85,8 @@ protobuf {
     }
 }
 
-generateServices.dependsOn.add('generateProto')
-compileJava.dependsOn.add('generateServices')
-
-serviceGeneration {
-    settings {
-        protoDir = "src/main/proto"
-        outDir = "src/gen/main/services"
-    }
-}
+// generateServices.dependsOn.add('generateProto')
+compileJava.dependsOn.add('generateProto')
 
 java {
     withJavadocJar()
@@ -206,5 +186,5 @@ signing {
 
 clean {
     delete genDir
-    delete sharedDir
+    delete sharedDir 
 }
