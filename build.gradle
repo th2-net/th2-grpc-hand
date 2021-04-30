@@ -1,14 +1,14 @@
-buildscript {
-    repositories {
-        maven {
-            name 'Bintray'
-            url 'https://dl.bintray.com/exactpro/th2'
-        }
-    }
-    dependencies {
-        classpath "com.exactpro.th2:grpc-service-generator:2.0.5"
-    }
-}
+// buildscript {
+//     repositories {
+//         maven {
+//             name 'Bintray'
+//             url 'https://dl.bintray.com/exactpro/th2'
+//         }
+//     }
+//     dependencies {
+//         classpath "com.exactpro.th2:grpc-service-generator:2.0.5"
+//     }
+// }
 plugins {
     id 'java'
     id 'java-library'
@@ -17,7 +17,7 @@ plugins {
     id 'signing'
     id "com.google.protobuf" version "0.8.15"
 }
-apply plugin: "com.exactpro.th2.service-generator"
+// apply plugin: "com.exactpro.th2.service-generator"
 
 group = 'com.exactpro.th2'
 version = release_version
@@ -35,10 +35,10 @@ ext {
 
 repositories {
     mavenCentral()
-    maven {
-        name 'Bintray'
-        url 'https://dl.bintray.com/exactpro/th2'
-    }
+    // maven {
+    //     name 'Bintray'
+    //     url 'https://dl.bintray.com/exactpro/th2'
+    // }
     maven {
             name 'Sonatype_snapshots'
             url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
@@ -55,8 +55,8 @@ repositories {
 }
 
 dependencies {
-    api platform('com.exactpro.th2:bom:2.10.1')
-    implementation "com.exactpro.th2:grpc-common:3.0.0"
+    api platform('com.exactpro.th2:bom:3.0.0')
+    implementation "com.exactpro.th2:grpc-common:3.1.2"
 
     api "com.google.protobuf:protobuf-java-util"
     api "io.grpc:grpc-stub"
@@ -66,7 +66,7 @@ dependencies {
 
     implementation "javax.annotation:javax.annotation-api:1.3.2"
 
-    implementation "com.exactpro.th2:grpc-service-generator:2.0.5"
+    // implementation "com.exactpro.th2:grpc-service-generator:2.0.5"
 }
 
 sourceSets {
@@ -98,15 +98,15 @@ protobuf {
     }
 }
 
-generateServices.dependsOn.add('generateProto')
-compileJava.dependsOn.add('generateServices')
+// generateServices.dependsOn.add('generateProto')
+compileJava.dependsOn.add('generateProto')
 
-serviceGeneration {
-    settings {
-        protoDir = "src/main/proto"
-        outDir = "src/gen/main/services"
-    }
-}
+// serviceGeneration {
+//     settings {
+//         protoDir = "src/main/proto"
+//         outDir = "src/gen/main/services"
+//     }
+// }
 
 java {
     withJavadocJar()
