@@ -28,12 +28,17 @@ message WinLocator {
   google.protobuf.Int32Value matcherIndex = 3;
 }
 
+message BaseWinParams {
+  string id = 1;
+  string execute = 2;
+  string fromRoot = 3;
+}
+
 message WinOpen {
-    string id = 2;
-    string execute = 3;
-    string workDir = 4;
-    string appFile = 5;
-    string appArgs = 6;
+  string workDir = 4;
+  string appFile = 5;
+  string appArgs = 6;
+  BaseWinParams baseParams = 7;
 }
 
 message WinClick {
@@ -51,120 +56,102 @@ message WinClick {
     RIGHT_BOTTOM = 4;
   }
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
   Button button = 4;
   google.protobuf.Int32Value xOffset = 5;
   google.protobuf.Int32Value yOffset = 6;
   AttachedBorder attachedBorder = 7;
+  BaseWinParams baseParams = 8;
 }
 
 message WinSendText {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
   string text = 4;
   string clearBefore = 5;
   string isDirectText = 6;
+  BaseWinParams baseParams = 7;
 }
 
 message WinGetActiveWindow {
-  string id = 2;
-  string execute = 3;
   string windowName = 4;
   string accessibilityId = 5;
   int32 maxTimeout = 6;
+  BaseWinParams baseParams = 7;
 }
 
 message MaximizeMainWindow {
-  string id = 2;
-  string execute = 3;
+  BaseWinParams baseParams = 4;
 }
 
 message WinGetElementAttribute {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
   string attributeName = 4;
+  BaseWinParams baseParams = 5;
 }
 
 message WinWait {
-  string id = 2;
-  string execute = 3;
   uint32 millis = 4;
+  BaseWinParams baseParams = 5;
 }
 
 message WinToggleCheckBox {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
   string expectedState = 4;
+  BaseWinParams baseParams = 5;
 }
 
 message WinClickContextMenu {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
+  BaseWinParams baseParams = 4;
 }
 
 message WinCheckElement {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
+  BaseWinParams baseParams = 4;
 }
 
 message WinGetWindow {
-  string id = 2;
-  string execute = 3;
   string windowName = 4;
   string accessibilityId = 5;
+  BaseWinParams baseParams = 6;
 }
 
 message WinSearchElement {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
+  BaseWinParams baseParams = 4;
 }
 
 message WinWaitForAttribute {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
   string attributeName = 4;
   string expectedValue = 5;
   string maxTimeout = 6;
   string checkInterval = 7;
-  string fromRoot = 8;
+  BaseWinParams baseParams = 9;
 }
 
 message WinScrollUsingText {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
   string textToSend = 4;
   string maxIterations = 5;
   repeated WinLocator textLocators = 6;
+  BaseWinParams baseParams = 7;
 }
 
 message WinGetDataFromClipboard {
-  string id = 2;
-  string execute = 3;
+  BaseWinParams baseParams = 4;
 }
 
 message WinTableClick {
   option deprecated = true;
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
   string searchParams = 4;
   string targetColumn = 5;
   string columnIndex = 6;
+  BaseWinParams baseParams = 7;
 }
 
 message WinTableSearch {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
   string searchParams = 4;
   string targetColumn = 5;
   string columnIndex = 6;
@@ -173,18 +160,16 @@ message WinTableSearch {
   string rowElementNameFormat = 9;
   string rowElementValueFormat = 10;
   string saveResult = 11;
+  BaseWinParams baseParams = 12;
 }
 
 message WinWaitForElement {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
   string timeout = 4;
-  string fromRoot = 5;
+  BaseWinParams baseParams = 6;
 }
 
 message WinGetScreenshot {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
+  BaseWinParams baseParams = 4;
 }
