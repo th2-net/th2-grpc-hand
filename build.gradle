@@ -80,6 +80,12 @@ protobuf {
     generateProtoTasks {
         all()*.plugins {
             grpc {}
+            services {
+                option 'javaInterfacesPath=./java/src'
+                option 'javaInterfacesImplPath=./java/src'
+                option 'javaMetaInfPath=./java/resources'
+                option 'pythonPath=./python'
+            }
         }
         ofSourceSet('main')
     }
