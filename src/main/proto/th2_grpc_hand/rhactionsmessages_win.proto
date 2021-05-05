@@ -124,6 +124,7 @@ message WinSearchElement {
   repeated WinLocator locators = 1;
   string id = 2;
   string execute = 3;
+  bool nonExperimental = 4;
 }
 
 message WinWaitForAttribute {
