@@ -111,6 +111,7 @@ message WinCheckElement {
   repeated WinLocator locators = 1;
   string id = 2;
   string execute = 3;
+  bool saveElement = 4;
 }
 
 message WinGetWindow {
