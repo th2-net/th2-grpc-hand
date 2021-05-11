@@ -66,6 +66,7 @@ message WinSendText {
   string text = 4;
   string clearBefore = 5;
   string isDirectText = 6;
+  bool nonExperimental = 7;
 }
 
 message WinGetActiveWindow {
@@ -126,6 +127,7 @@ message WinSearchElement {
   string id = 2;
   string execute = 3;
   bool nonExperimental = 4;
+  bool multipleElements = 5;
 }
 
 message WinWaitForAttribute {
