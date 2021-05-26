@@ -31,7 +31,8 @@ message WinLocator {
 message BaseWinParams {
   string id = 1;
   string execute = 2;
-  string fromRoot = 3;
+  bool fromRoot = 3;
+  bool experimentalDriver = 4;
 }
 
 message WinOpen {
