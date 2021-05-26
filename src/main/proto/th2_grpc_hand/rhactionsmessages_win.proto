@@ -57,6 +57,7 @@ message WinClick {
   google.protobuf.Int32Value xOffset = 5;
   google.protobuf.Int32Value yOffset = 6;
   AttachedBorder attachedBorder = 7;
+  string holdKeysDown = 8;
 }
 
 message WinSendText {
