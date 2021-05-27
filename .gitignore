@@ -8,7 +8,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-/src/gen/
 /shared/
 dist
 *egg-info
