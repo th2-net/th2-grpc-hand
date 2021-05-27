@@ -70,6 +70,7 @@ message WinSendText {
   string clearBefore = 5;
   string isDirectText = 6;
   BaseWinParams baseParams = 7;
+  bool nonExperimental = 8;
 }
 
 message WinGetActiveWindow {
@@ -108,6 +109,7 @@ message WinClickContextMenu {
 message WinCheckElement {
   repeated WinLocator locators = 1;
   BaseWinParams baseParams = 4;
+  bool saveElement = 5;
 }
 
 message WinGetWindow {
@@ -119,6 +121,7 @@ message WinGetWindow {
 message WinSearchElement {
   repeated WinLocator locators = 1;
   BaseWinParams baseParams = 4;
+  bool multipleElements = 5;
 }
 
 message WinWaitForAttribute {
