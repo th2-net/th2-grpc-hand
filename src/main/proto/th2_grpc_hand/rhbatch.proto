@@ -129,5 +129,6 @@ message RhAction {
       WinTableSearch winTableSearch = 115;
       MaximizeMainWindow winMaximizeMainWindow = 116;
       WinGetScreenshot winGetScreenshot = 117;
+      WinRestartDriver winRestartDriver = 118;
   }
 }

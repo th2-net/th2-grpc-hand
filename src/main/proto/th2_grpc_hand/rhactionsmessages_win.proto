@@ -70,7 +70,6 @@ message WinSendText {
   string clearBefore = 5;
   string isDirectText = 6;
   BaseWinParams baseParams = 7;
-  bool nonExperimental = 8;
 }
 
 message WinGetActiveWindow {
@@ -176,4 +175,8 @@ message WinWaitForElement {
 message WinGetScreenshot {
   repeated WinLocator locators = 1;
   BaseWinParams baseParams = 4;
+}
+
+message WinRestartDriver {
+  BaseWinParams baseParams = 1;
 }
