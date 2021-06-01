@@ -100,11 +100,6 @@ message WinToggleCheckBox {
   BaseWinParams baseParams = 5;
 }
 
-message WinClickContextMenu {
-  repeated WinLocator locators = 1;
-  BaseWinParams baseParams = 4;
-}
-
 message WinCheckElement {
   repeated WinLocator locators = 1;
   BaseWinParams baseParams = 4;

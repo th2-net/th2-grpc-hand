@@ -118,7 +118,6 @@ message RhAction {
       WinGetElementAttribute winGetElementAttribute = 104;
       WinWait winWait= 105;
       WinToggleCheckBox winToggleCheckBox = 106;
-      WinClickContextMenu winClickContextMenu = 107;
       WinCheckElement winCheckElement = 108;
       WinGetWindow winGetWindow = 109;
       WinSearchElement winSearchElement = 110;
