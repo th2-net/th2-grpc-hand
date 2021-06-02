@@ -131,5 +131,6 @@ message RhAction {
       WinGetScreenshot winGetScreenshot = 117;
       WinGetElementColor winGetElementColor = 118;
       WinDragAndDrop winDragAndDrop = 119;
+      WinScrollToElement winScrollToElement = 120;
   }
 }
