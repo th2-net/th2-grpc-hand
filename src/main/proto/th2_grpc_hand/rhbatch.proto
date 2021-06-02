@@ -130,5 +130,6 @@ message RhAction {
       MaximizeMainWindow winMaximizeMainWindow = 116;
       WinGetScreenshot winGetScreenshot = 117;
       WinGetElementColor winGetElementColor = 118;
+      WinDragAndDrop winDragAndDrop = 119;
   }
 }

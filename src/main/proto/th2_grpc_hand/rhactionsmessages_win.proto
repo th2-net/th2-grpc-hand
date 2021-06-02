@@ -54,8 +54,8 @@ message WinClick {
   string id = 2;
   string execute = 3;
   Button button = 4;
-  google.protobuf.Int32Value xOffset = 5;
-  google.protobuf.Int32Value yOffset = 6;
+  string xOffset = 5;
+  string yOffset = 6;
   AttachedBorder attachedBorder = 7;
 }
 
@@ -195,4 +195,34 @@ message WinGetElementColor {
   string execute = 3;
   google.protobuf.Int32Value xOffset = 4;
   google.protobuf.Int32Value yOffset = 5;
+}
+
+message WinDragAndDrop {
+  repeated WinLocator fromLocators = 1;
+  repeated WinLocator toLocators = 2;
+  string id = 3;
+  string execute = 4;
+  string fromOffsetX = 6;
+  string fromOffsetY = 7;
+  string toOffsetX = 8;
+  string toOffsetY = 9;
+}
+
+message WinScrollToElement {
+  enum ScrollType {
+    CLICK = 0;
+    TEXT = 1;
+  }
+
+  repeated WinLocator elementLocators = 1;
+  repeated WinLocator actionLocators = 2;
+  string id = 3;
+  string execute = 4;
+  bool isElementInTree = 5;
+  bool isElementShouldBeDisplayed = 6;
+  ScrollType scrollType = 7;
+  int32 maxIterations = 8;
+  string clickOffsetX = 9;
+  string clickOffsetY = 10;
+  string textToSend = 11;
 }
