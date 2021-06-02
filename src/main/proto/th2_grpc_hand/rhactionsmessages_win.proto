@@ -193,8 +193,8 @@ message WinGetElementColor {
   repeated WinLocator locators = 1;
   string id = 2;
   string execute = 3;
-  google.protobuf.Int32Value xOffset = 4;
-  google.protobuf.Int32Value yOffset = 5;
+  string xOffset = 4;
+  string yOffset = 5;
 }
 
 message WinDragAndDrop {
