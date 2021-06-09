@@ -178,21 +178,19 @@ message WinRestartDriver {
 
 message WinGetElementColor {
   repeated WinLocator locators = 1;
-  string id = 2;
-  string execute = 3;
   string xOffset = 4;
   string yOffset = 5;
+  BaseWinParams baseParams = 6;
 }
 
 message WinDragAndDrop {
   repeated WinLocator fromLocators = 1;
   repeated WinLocator toLocators = 2;
-  string id = 3;
-  string execute = 4;
   string fromOffsetX = 6;
   string fromOffsetY = 7;
   string toOffsetX = 8;
   string toOffsetY = 9;
+  BaseWinParams baseParams = 10;
 }
 
 message WinScrollToElement {
@@ -203,8 +201,6 @@ message WinScrollToElement {
 
   repeated WinLocator elementLocators = 1;
   repeated WinLocator actionLocators = 2;
-  string id = 3;
-  string execute = 4;
   bool isElementInTree = 5;
   bool isElementShouldBeDisplayed = 6;
   ScrollType scrollType = 7;
@@ -212,4 +208,5 @@ message WinScrollToElement {
   string clickOffsetX = 9;
   string clickOffsetY = 10;
   string textToSend = 11;
+  BaseWinParams baseParams = 12;
 }
