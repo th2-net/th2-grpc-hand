@@ -118,7 +118,6 @@ message RhAction {
       WinGetElementAttribute winGetElementAttribute = 104;
       WinWait winWait= 105;
       WinToggleCheckBox winToggleCheckBox = 106;
-      WinClickContextMenu winClickContextMenu = 107;
       WinCheckElement winCheckElement = 108;
       WinGetWindow winGetWindow = 109;
       WinSearchElement winSearchElement = 110;
@@ -130,5 +129,8 @@ message RhAction {
       MaximizeMainWindow winMaximizeMainWindow = 116;
       WinGetScreenshot winGetScreenshot = 117;
       WinGetElementColor winGetElementColor = 118;
+      WinDragAndDrop winDragAndDrop = 119;
+      WinScrollToElement winScrollToElement = 120;
+      WinRestartDriver winRestartDriver = 121;
   }
 }
