@@ -60,7 +60,6 @@ message WinClick {
   Button button = 4;
   string xOffset = 5;
   string yOffset = 6;
-  AttachedBorder attachedBorder = 7;
   BaseWinParams baseParams = 8;
   string modifiers = 9;
 }
