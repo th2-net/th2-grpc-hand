@@ -212,9 +212,10 @@ message WinScrollToElement {
 }
 
 message WinColorsCollector {
-  BaseWinParams baseParams = 1;
-  string startXOffset = 2;
-  string startYOffset = 3;
-  string endXOffset = 4;
-  string endYOffset = 5;
+  repeated WinLocator locators = 1;
+  BaseWinParams baseParams = 2;
+  string startXOffset = 3;
+  string startYOffset = 4;
+  string endXOffset = 5;
+  string endYOffset = 6;
 }
