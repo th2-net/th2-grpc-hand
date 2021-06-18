@@ -132,5 +132,6 @@ message RhAction {
       WinDragAndDrop winDragAndDrop = 119;
       WinScrollToElement winScrollToElement = 120;
       WinRestartDriver winRestartDriver = 121;
+      WinColorsCollector winColorsCollector = 122;
   }
 }
