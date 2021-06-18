@@ -197,3 +197,7 @@ clean {
     delete genDir
     delete sharedDir 
 }
+
+javadoc {
+    options.addStringOption('Xdoclint:none', '-quiet')
+}

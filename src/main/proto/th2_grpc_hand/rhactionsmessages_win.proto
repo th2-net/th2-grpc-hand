@@ -211,3 +211,11 @@ message WinScrollToElement {
   string textToSend = 11;
   BaseWinParams baseParams = 12;
 }
+
+message WinColorsCollector {
+  BaseWinParams baseParams = 1;
+  string startXOffset = 2;
+  string startYOffset = 3;
+  string endXOffset = 4;
+  string endYOffset = 5;
+}
