@@ -2,10 +2,12 @@
 
 .gradle
 build
+src/gen
 
 __pycache__/
 *.py[cod]
 *$py.class
 
+/shared/
 dist
 *egg-info
