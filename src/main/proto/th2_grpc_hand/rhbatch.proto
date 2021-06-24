@@ -109,6 +109,7 @@ message RhAction {
       StoreElementState storeElementState = 39;
       ExecuteJS executeJs = 40;
       ExecuteJSElement executeJsElement = 41;
+      DragAndDropElement dragAndDropElement = 42;
       
       //windows actions
       WinOpen winOpen = 100;

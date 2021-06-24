@@ -321,3 +321,17 @@ message ExecuteJSElement {
   string webId = 4;
   string commands = 5;
 }
+
+message DragAndDropElement {
+  int32 wait = 1;
+  Locator locator = 2;
+  string matcher = 3;
+  string xOffset = 4;
+  string yOffset = 5;
+  int32 wait2 = 6;
+  Locator locator2 = 7;
+  string matcher2 = 8;
+  string toXOffset = 9;
+  string toYOffset = 10;
+  int32 waitMillis = 11;
+}
