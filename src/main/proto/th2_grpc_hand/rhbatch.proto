@@ -135,5 +135,6 @@ message RhAction {
       WinScrollToElement winScrollToElement = 120;
       WinRestartDriver winRestartDriver = 121;
       WinColorsCollector winColorsCollector = 122;
+      WinTakeScreenshot winTakeScreenshot = 123;
   }
 }

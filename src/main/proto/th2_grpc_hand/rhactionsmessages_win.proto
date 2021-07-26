@@ -172,6 +172,12 @@ message WinGetScreenshot {
   BaseWinParams baseParams = 4;
 }
 
+message WinTakeScreenshot {
+  repeated WinLocator locators = 1;
+  string name = 2;
+  BaseWinParams baseParams = 3;
+}
+
 message WinRestartDriver {
   BaseWinParams baseParams = 1;
 }
