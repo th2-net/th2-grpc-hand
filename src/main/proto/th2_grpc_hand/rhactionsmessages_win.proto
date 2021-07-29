@@ -225,3 +225,35 @@ message WinColorsCollector {
   string endXOffset = 5;
   string endYOffset = 6;
 }
+
+message RhWinActionList {
+  repeated RhWinActions winActionList = 1;
+}
+
+message RhWinActions {
+  oneof action {
+    WinOpen winOpen = 1;
+    WinClick winClick = 2;
+    WinSendText winSendText = 3;
+    WinGetActiveWindow winGetActiveWindow = 4;
+    WinGetElementAttribute winGetElementAttribute = 5;
+    WinWait winWait= 6;
+    WinToggleCheckBox winToggleCheckBox = 7;
+    WinCheckElement winCheckElement = 8;
+    WinGetWindow winGetWindow = 9;
+    WinSearchElement winSearchElement = 10;
+    WinWaitForAttribute winWaitForAttribute = 11;
+    WinScrollUsingText winScrollUsingText = 12;
+    WinGetDataFromClipboard winGetDataFromClipboard = 13;
+    WinWaitForElement winWaitForElement = 14;
+    WinTableSearch winTableSearch = 15;
+    MaximizeMainWindow winMaximizeMainWindow = 16;
+    WinGetScreenshot winGetScreenshot = 17;
+    WinGetElementColor winGetElementColor = 18;
+    WinDragAndDrop winDragAndDrop = 19;
+    WinScrollToElement winScrollToElement = 20;
+    WinRestartDriver winRestartDriver = 21;
+    WinColorsCollector winColorsCollector = 22;
+    WinTakeScreenshot winTakeScreenshot = 23;
+  }
+}
