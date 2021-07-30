@@ -19,7 +19,7 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.exactpro.th2.act.grpc.hand";
 
-import "th2_grpc_hand/rhactionsmessages.proto";
+import "th2_grpc_hand/rhactionsmessages_web.proto";
 import "th2_grpc_hand/rhactionsmessages_win.proto";
 import "th2_grpc_common/common.proto";
 import "google/protobuf/empty.proto";
@@ -27,7 +27,7 @@ import "google/protobuf/empty.proto";
 service RhBatch {
   rpc register(RhTargetServer) returns (RhSessionID) {}
   rpc unregister(RhSessionID) returns (google.protobuf.Empty) {}
-  rpc executeRhActionsBatch(RhActionsList) returns (RhBatchResponse) {}
+  rpc executeRhActionsBatch(RhActionsBatch) returns (RhBatchResponse) {}
 }
 
 message RhSessionID {
@@ -60,81 +60,27 @@ message RhBatchResponse {
 }
 
 // Represents list of RhActions which need to be executed to perform some operation user wants to
-message RhActionsList {
-  RhSessionID sessionId = 1;
-  repeated RhAction rhAction = 2;
-  EventID parentEventId = 3;
-  string eventName = 4;
-  bool storeActionMessages = 5;
+message RhActionsBatch {
+    RhSessionID sessionId = 1;
+    EventID parentEventId = 3;
+    string eventName = 4;
+    bool storeActionMessages = 5;
+    RhActionList rhAction = 6;
+    AdditionalEventInfo additionalEventInfo = 7;
+    
+    message AdditionalEventInfo {
+        bool printTable = 1;
+        string requestParamsTableTitle = 2;
+        repeated string keys = 3;
+        repeated string values = 4;
+        
+        string description = 5;
+    }    
 }
 
-message RhAction {
-  oneof action {
-      Open open = 1;
-      Click click = 2;
-      SetCheckbox setCheckbox = 3;
-      SendKeys sendKeys = 4;
-      WaitForElement waitForElement = 5;
-      WaitForNew waitForNew = 6;
-      Wait wait = 7;
-      GetElement getElement = 8;
-      GetElementInnerHtml getElementInnerHtml = 9;
-      GetElementValue getElementValue = 10;
-      GetElementAttribute getElementAttribute = 11;
-      GetDynamicTable getDynamicTable = 12;
-      ScrollTo scrollTo = 13;
-      ScrollDivTo scrollDivTo = 14;
-      ScrollDivUntil scrollDivUntil = 15;
-      PageSource pageSource = 16;
-      Refresh refresh = 17;
-      Select select = 18;
-      ClearElement clearElement = 19;
-      Output output = 20;
-      FindElement findElement = 21;
-      KeyAction keyAction = 22;
-      PressKey pressKey = 23;
-      SendKeysToActive sendKeysToActive = 24;
-      UploadFile uploadFile = 25;
-      DownloadFile downloadFile = 26;
-      SwitchWindow switchWindow = 27;
-      CloseWindow closeWindow = 28;
-      GetCurrentURL getCurrentURL = 29;
-      SetZoom setZoom = 30;
-      DurationStart durationStart = 31;
-      GetDuration getDuration = 32;
-      GetElementScreenshot getElementScreenshot = 33;
-      WaitForChanges waitForChanges = 34;
-      AcceptAlert acceptAlert = 35;
-      DismissAlert dismissAlert = 36;
-      CheckImageAvailability checkImageAvailability = 37;
-      GetScreenshot getScreenshot = 38;
-      StoreElementState storeElementState = 39;
-      ExecuteJS executeJs = 40;
-      ExecuteJSElement executeJsElement = 41;
-      
-      //windows actions
-      WinOpen winOpen = 100;
-      WinClick winClick = 101;
-      WinSendText winSendText = 102;
-      WinGetActiveWindow winGetActiveWindow = 103;
-      WinGetElementAttribute winGetElementAttribute = 104;
-      WinWait winWait= 105;
-      WinToggleCheckBox winToggleCheckBox = 106;
-      WinCheckElement winCheckElement = 108;
-      WinGetWindow winGetWindow = 109;
-      WinSearchElement winSearchElement = 110;
-      WinWaitForAttribute winWaitForAttribute = 111;
-      WinScrollUsingText winScrollUsingText = 112;
-      WinGetDataFromClipboard winGetDataFromClipboard = 113;
-      WinWaitForElement winWaitForElement = 114;
-      WinTableSearch winTableSearch = 115;
-      MaximizeMainWindow winMaximizeMainWindow = 116;
-      WinGetScreenshot winGetScreenshot = 117;
-      WinGetElementColor winGetElementColor = 118;
-      WinDragAndDrop winDragAndDrop = 119;
-      WinScrollToElement winScrollToElement = 120;
-      WinRestartDriver winRestartDriver = 121;
-      WinColorsCollector winColorsCollector = 122;
-      WinTakeScreenshot winTakeScreenshot = 123;
+message RhActionList {
+  oneof list {
+      RhWebActionList web = 1;
+      RhWinActionList win = 2;
   }
 }
