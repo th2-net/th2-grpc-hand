@@ -67,7 +67,9 @@ message RhActionsBatch {
     bool storeActionMessages = 5;
     RhActionList rhAction = 6;
     AdditionalEventInfo additionalEventInfo = 7;
-    
+    string execution_id = 8;
+    MessageType message_type = 9;
+
     message AdditionalEventInfo {
         bool printTable = 1;
         string requestParamsTableTitle = 2;
@@ -84,3 +86,8 @@ message RhActionList {
       RhWinActionList win = 2;
   }
 }
+
+enum MessageType {
+    PLAIN_STRING = 0;
+    FIX = 1;
+} 
