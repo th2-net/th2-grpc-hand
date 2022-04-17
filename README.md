@@ -1,4 +1,4 @@
-# th2 gRPC hand library
+# th2 gRPC hand library (2.10.0)
 
 This library contains proto messages and `RhBatch` service with RPC methods that are used in [th2 hand](https://github.com/th2-net/th2-hand "th2-hand"). See [proto](src/main/proto "proto") files for details. <br>
 Tool generates code from `.proto` files and uploads built packages (`.proto` files and generated code) to specified repositories.
