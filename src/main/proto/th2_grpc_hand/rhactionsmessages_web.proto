@@ -322,6 +322,12 @@ message ExecuteJSElement {
   string commands = 5;
 }
 
+message SelectFrame {
+  int32 wait = 1;
+  Locator locator = 2;
+  string matcher = 3;
+}
+
 message RhWebActionList {
   repeated RhWebActions webActionList = 1;
 }
@@ -369,5 +375,6 @@ message RhWebActions {
     StoreElementState storeElementState = 39;
     ExecuteJS executeJs = 40;
     ExecuteJSElement executeJsElement = 41;
+    SelectFrame selectFrame = 42;
   }
 }
