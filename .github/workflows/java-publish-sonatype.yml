@@ -3,9 +3,10 @@ name: Build and release Java distributions to sonatype.
 on:
   push:
     branches:
-    - master
+      - master
+      - version-*
     paths:
-    - gradle.properties
+      - gradle.properties
 
 jobs:
   build:
@@ -23,4 +24,4 @@ jobs:
           ORG_GRADLE_PROJECT_sonatypeUsername: ${{ secrets.SONATYPE_NEXUS_USERNAME }}
           ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
           ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SONATYPE_GPG_ARMORED_KEY }}
-          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SONATYPE_SIGNING_PASSWORD }} 
+          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SONATYPE_SIGNING_PASSWORD }}
