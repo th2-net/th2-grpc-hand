@@ -2,9 +2,9 @@ plugins {
     id 'java'
     id 'java-library'
     id 'maven-publish'
-    id "io.github.gradle-nexus.publish-plugin" version "1.0.0"
+    id "io.github.gradle-nexus.publish-plugin" version "1.1.0"
     id 'signing'
-    id "com.google.protobuf" version "0.8.15"
+    id "com.google.protobuf" version "0.8.19"
 }
 
 group = 'com.exactpro.th2'
@@ -14,9 +14,9 @@ sourceCompatibility = 11
 targetCompatibility = 11
 
 ext {
-    grpcVersion         = '1.32.1'
-    protobufVersion     = '3.13.0'
-    serviceGeneratorVersion = '3.1.10'
+    grpcVersion         = '1.39.0'
+    protobufVersion     = '3.21.2'
+    serviceGeneratorVersion = '3.2.2'
 
     genDir              = file("${project.rootDir}/src/gen")
     sharedDir           = file("${project.rootDir}/shared")
@@ -40,8 +40,8 @@ repositories {
 }
 
 dependencies {
-    api platform('com.exactpro.th2:bom:3.0.0')
-    api "com.exactpro.th2:grpc-common:3.8.0"
+    api platform('com.exactpro.th2:bom:3.2.0')
+    api "com.exactpro.th2:grpc-common:3.11.1"
 
     api "com.google.protobuf:protobuf-java-util"
     api "io.grpc:grpc-stub"
