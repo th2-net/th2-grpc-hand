@@ -201,3 +201,10 @@ clean {
 javadoc {
     options.addStringOption('Xdoclint:none', '-quiet')
 }
+
+
+configurations {
+    compileClasspath {
+        resolutionStrategy.activateDependencyLocking()
+    }
+}
