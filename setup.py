@@ -1,4 +1,4 @@
-#   Copyright 2020-2022 Exactpro (Exactpro Systems Limited)
+#   Copyright 2020-2024 Exactpro (Exactpro Systems Limited)
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
 
 import json
 import os
-import site
 from distutils.cmd import Command
 from distutils.dir_util import copy_tree
 from distutils.sysconfig import get_python_lib
@@ -39,7 +38,7 @@ class ProtoGenerator(Command):
 
     def run(self):
         proto_path = os.path.abspath('src/main/proto')
-        gen_path = os.path.abspath('src/gen/main/python')
+        gen_path = os.path.abspath('build/generated/source/proto/main/services/python')
 
         if not os.path.exists(gen_path):
             os.makedirs(gen_path)
@@ -53,14 +52,13 @@ class ProtoGenerator(Command):
         protos = [('grpc_tools', '_proto')]
         protos_include = [f'--proto_path={proto_path}'] + \
                          [f'--proto_path={resource_filename(x[0], x[1])}' for x in protos] + \
-                         [f'--proto_path={get_python_lib()}'] + \
-                         [f'--proto_path={site.getusersitepackages()}']
+                         [f'--proto_path={get_python_lib()}']
 
         from grpc_tools import protoc
         for proto_file in proto_files:
             command = ['grpc_tools.protoc'] + \
                       protos_include + \
-                      ['--python_out={}'.format(gen_path), '--grpc_python_out={}'.format(gen_path)] + \
+                      [f'--python_out={gen_path}', f'--grpc_python_out={gen_path}'] + \
                       [f'--mypy_out={gen_path}'] + \
                       [proto_file]
 
@@ -74,8 +72,7 @@ class CustomDist(sdist):
     def run(self):
         copy_tree(f'src/main/proto/{package_name}', package_name)
 
-        copy_tree(f'src/gen/main/python/{package_name}', package_name)
-        copy_tree(f'src/gen/main/services/python/{package_name}', package_name)
+        copy_tree(f'build/generated/source/proto/main/services/python/{package_name}', package_name)
         Path(f'{package_name}/__init__.py').touch()
         Path(f'{package_name}/py.typed').touch()
 
