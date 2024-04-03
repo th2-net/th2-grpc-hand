@@ -1,5 +1,4 @@
 plugins {
-    kotlin("jvm") version "1.8.22" apply false
     id("java-library")
     id("maven-publish")
 
@@ -10,12 +9,10 @@ plugins {
 }
 
 allprojects {
-    group = "com.exactpro.th2"
-    version = project.properties["release_version"].toString()
-    val suffix = project.properties["version_suffix"].toString()
-    if (suffix.isNotEmpty()) {
-        version = "$version-$suffix"
-    }
+    val version = project.properties["release_version"].toString()
+    val suffix = project.properties["version_suffix"]?.toString() ?: ""
+    this.group = "com.exactpro.th2"
+    this.version = version + if (suffix.isEmpty()) "" else "-$suffix"
 }
 
 configurations.all {
